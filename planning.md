@@ -14,10 +14,11 @@ there needs to be a state to monitor the user's inputs, call this userInput
 - for initial render, make sure that the correct word is fetched and ready, as well as the list of words that a user can
   guess from, this will be needed to be accessed quickly(likely as a set for context)
 
-main app.js file will have :
+main app.js file will be in charge of overseeing these separate functions :
 
 - fetching correct words and dictionary to guess from
 - initializing the game state and the board UI
 - initializing the user input state, starting from the first attempt
 - initializing the current attempt state, this will start at 1, and later, if it gets exceeded we end the game early, likely
   will be using an easy, win or lose state, that once changed for whatever reason, handles the changing of the game-state
+- on each correct guess, send a request to to the dictionary api to verify if it is a word that exists
