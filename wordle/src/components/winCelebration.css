@@ -1,0 +1,149 @@
+.win-celebration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0 0 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: #121213;
+}
+
+.celebration-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.trophy {
+  font-size: 4rem;
+  animation: bounce 1s ease-in-out infinite alternate;
+  margin: 0 0 5px 0;
+}
+
+.win-text {
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #6aaa64;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+  margin: 0;
+}
+
+.confetti {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  animation: fall 3s linear infinite;
+}
+
+.confetti-piece:nth-child(1) {
+  background-color: #6aaa64;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 2.5s;
+}
+
+.confetti-piece:nth-child(2) {
+  background-color: #c9b458;
+  left: 20%;
+  animation-delay: 0.3s;
+  animation-duration: 3s;
+}
+
+.confetti-piece:nth-child(3) {
+  background-color: #6aaa64;
+  left: 30%;
+  animation-delay: 0.6s;
+  animation-duration: 2.8s;
+}
+
+.confetti-piece:nth-child(4) {
+  background-color: #c9b458;
+  left: 50%;
+  animation-delay: 0.9s;
+  animation-duration: 2.2s;
+}
+
+.confetti-piece:nth-child(5) {
+  background-color: #6aaa64;
+  left: 60%;
+  animation-delay: 1.2s;
+  animation-duration: 2.7s;
+}
+
+.confetti-piece:nth-child(6) {
+  background-color: #c9b458;
+  left: 70%;
+  animation-delay: 1.5s;
+  animation-duration: 3.2s;
+}
+
+.confetti-piece:nth-child(7) {
+  background-color: #6aaa64;
+  left: 80%;
+  animation-delay: 1.8s;
+  animation-duration: 2.4s;
+}
+
+.confetti-piece:nth-child(8) {
+  background-color: #c9b458;
+  left: 90%;
+  animation-delay: 2.1s;
+  animation-duration: 2.9s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(400px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .trophy {
+    font-size: 3rem;
+  }
+
+  .win-text {
+    font-size: 2rem;
+  }
+}

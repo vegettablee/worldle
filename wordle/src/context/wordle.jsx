@@ -13,7 +13,7 @@ export function WordleContextProvider({ children }) {
       setTimeout(() => {
         setLoading(false);
         setWordleWord(word);
-      }, 3000);
+      }, 1000);
       // setLoading(false);
       // setWordleWord(word);
     });

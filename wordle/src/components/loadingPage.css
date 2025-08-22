@@ -1,5 +1,4 @@
 /* WordleLoader.css */
-
 .wordle-loader-container {
   position: fixed;
   top: 0;
@@ -22,22 +21,24 @@
 }
 
 .wordle-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .wordle-tile {
-  width: 62px;
-  height: 62px;
+  width: 50px;
+  height: 50px;
   border: 2px solid #3a3a3c;
   background-color: #121213;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
   animation: tileFlip 2s infinite;
@@ -107,16 +108,15 @@
 /* Responsive design */
 @media (max-width: 480px) {
   .wordle-tile {
-    width: 48px;
-    height: 48px;
-    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
   }
-
   .loading-text {
     font-size: 1.25rem;
   }
-
   .wordle-grid {
     gap: 0.25rem;
+    flex-wrap: nowrap;
   }
 }

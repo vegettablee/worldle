@@ -1,0 +1,211 @@
+.wordle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  background-color: #121213;
+  min-height: 100vh;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.wordle-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 62px);
+  grid-template-rows: repeat(6, 62px);
+  gap: 5px;
+  padding: 10px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.wordle-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.wordle-cell {
+  width: 62px;
+  height: 62px;
+  border: 2px solid #3a3a3c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: transparent;
+  text-transform: uppercase;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.wordle-cell.empty {
+  border-color: #3a3a3c;
+  background-color: transparent;
+}
+
+.wordle-cell.filled {
+  border-color: #565758;
+  background-color: #121213;
+  animation: pop 0.1s ease-in-out;
+}
+
+.wordle-cell:hover {
+  border-color: #565758;
+}
+
+/* Animation for when a letter is added */
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Wordle flip animation */
+.flip-animation {
+  animation: flip 0.6s ease-in-out forwards;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+    border-color: #3a3a3c;
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+/* Wordle color classes */
+.wordle-cell.green {
+  background-color: #6aaa64;
+  border-color: #6aaa64;
+  color: #ffffff;
+}
+
+.wordle-cell.yellow {
+  background-color: #c9b458;
+  border-color: #c9b458;
+  color: #ffffff;
+}
+
+.wordle-cell.grey {
+  background-color: #787c7e;
+  border-color: #787c7e;
+  color: #ffffff;
+}
+
+/* Translucent effect for previously animated cells */
+.wordle-cell.translucent {
+  opacity: 0.7;
+}
+
+.wordle-cell.translucent.green {
+  background-color: rgba(106, 170, 100, 0.7);
+  border-color: rgba(106, 170, 100, 0.7);
+}
+
+.wordle-cell.translucent.yellow {
+  background-color: rgba(201, 180, 88, 0.7);
+  border-color: rgba(201, 180, 88, 0.7);
+}
+
+.wordle-cell.translucent.grey {
+  background-color: rgba(120, 124, 126, 0.7);
+  border-color: rgba(120, 124, 126, 0.7);
+}
+
+/* Apply colors only during and after animation */
+.flip-animation.green {
+  animation: flipToGreen 0.6s ease-in-out forwards;
+}
+
+.flip-animation.yellow {
+  animation: flipToYellow 0.6s ease-in-out forwards;
+}
+
+.flip-animation.grey {
+  animation: flipToGrey 0.6s ease-in-out forwards;
+}
+
+@keyframes flipToGreen {
+  0% {
+    transform: rotateX(0deg);
+    background-color: transparent;
+    border-color: #565758;
+  }
+  50% {
+    transform: rotateX(90deg);
+    background-color: transparent;
+    border-color: #3a3a3c;
+  }
+  100% {
+    transform: rotateX(0deg);
+    background-color: #6aaa64;
+    border-color: #6aaa64;
+    color: #ffffff;
+  }
+}
+
+@keyframes flipToYellow {
+  0% {
+    transform: rotateX(0deg);
+    background-color: transparent;
+    border-color: #565758;
+  }
+  50% {
+    transform: rotateX(90deg);
+    background-color: transparent;
+    border-color: #3a3a3c;
+  }
+  100% {
+    transform: rotateX(0deg);
+    background-color: #c9b458;
+    border-color: #c9b458;
+    color: #ffffff;
+  }
+}
+
+@keyframes flipToGrey {
+  0% {
+    transform: rotateX(0deg);
+    background-color: transparent;
+    border-color: #565758;
+  }
+  50% {
+    transform: rotateX(90deg);
+    background-color: transparent;
+    border-color: #3a3a3c;
+  }
+  100% {
+    transform: rotateX(0deg);
+    background-color: #787c7e;
+    border-color: #787c7e;
+    color: #ffffff;
+  }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 480px) {
+  .wordle-grid {
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(6, 50px);
+    gap: 4px;
+  }
+
+  .wordle-cell {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
